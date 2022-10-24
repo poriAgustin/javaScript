@@ -1,0 +1,71 @@
+main {
+
+    ol.breadcrumb {
+        font-size: 15px;
+        padding-top: 0px;
+        padding-bottom: 20px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .container-titulo {
+        padding-top: 90px;
+        margin-bottom: 40px;
+        text-align: center;
+        color: $colorLetras;
+        font-family: monospace;
+
+        .titulo-producto {
+            color: $colorHeaderFooter;
+            background-color: #4f616b;
+        }
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-areas:
+            "card"
+            "card";
+        grid-template-rows: 1fr, 1fr;
+        // align-items: center;
+        text-align: center;
+        margin-top: 0px;
+        justify-items: center
+    }
+
+    .card {
+        @extend %cardsAlfombras;
+        margin-bottom: 50px;
+        box-shadow: 4px 4px rgba(0, 0, 0, 0.181);
+    }
+
+    .btn-primary {
+        width: 35vw;
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+    .card-text {
+        text-align: start;
+        margin-top: 20px;
+    }
+
+    .card-body {
+        padding-bottom: 0px;
+    }
+
+    .card-title {
+        font-size: 17px;
+        font-weight: 600;
+    }
+
+    .breadcrumb {
+        margin-left: 20px;
+        margin-bottom: 30px;
+    }
+
+    .breadcrumb2 a {
+        color: black;
+        text-decoration: none;
+    }
+}

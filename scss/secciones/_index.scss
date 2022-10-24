@@ -1,0 +1,120 @@
+main {
+    background-color: $colorMain;
+
+    .linea__main {
+        margin: 10px 15px;
+    }
+
+    .img-index {
+        width: 250px;
+        border-radius: 20px;
+        box-shadow: 3px 3px rgba(0, 0, 0, 0.181);
+    }
+
+
+    .carousel-inner {
+        padding-top: 92px;
+    }
+
+    .botonBanner {
+        padding-top: 100px;
+    }
+
+    .main__containertitulo {
+        display: flex;
+        flex-direction: column;
+        font-family: monospace;
+        text-align: center;
+        margin: 20px 0px 0px;
+        padding: 20px 30px;
+        color: $colorHeaderFooter;
+    }
+
+    .main__titulo {
+        margin-bottom: 20px;
+        font-size: 22px;
+        font-weight: 600;
+    }
+
+    .main__texto {
+        margin-top: 10px;
+        color: $colorLetras;
+        font-size: large;
+    }
+
+    .main__container2 {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        margin: 10px 30px 0px;
+
+        .container4 {
+            padding-top: 20px;
+
+            .txt3 {
+                font-size: 1.2rem;
+                padding: 0px 8px;
+            }
+        }
+    }
+
+    .ti {
+        color: $colorHeaderFooter;
+        font-weight: 700;
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    .main__txt2 {
+        color: $colorLetras;
+        font-size: large;
+        padding: 30px 5px 0px;
+    }
+
+    .btn {
+        // margin: 10px 125px 25px;
+        background-color: $colorLetrasNav;
+        width: 8vw;
+        margin-bottom: 15px;
+        margin-top: 15px;
+    }
+
+    .main__subtitulo {
+        background-color: $colorLetrasNav;
+        border-radius: 50%;
+        color: $colorLetras;
+        padding: 10px;
+        margin-top: 30px;
+    }
+
+    strong {
+        color: $colorLetrasNav;
+        font-size: 15px;
+    }
+
+    .video {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin: 20px 10px 20px;
+
+        .titulo-video {
+            font-weight: 600;
+            font-size: 16px;
+            padding: 4px 20px 20px;
+            color: $colorHeaderFooter;
+            background-color: #3a4b54;
+            width: 90vw;
+            height: 28px;
+            border-radius: 15px;
+        }
+
+        .video1 {
+            width: 95vw;
+            margin-top: 20px;
+            border-radius: 15px;
+        }
+    }
+}

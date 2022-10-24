@@ -1,0 +1,26 @@
+header {
+    position: fixed;
+    width: 100vw;
+    z-index: 3;
+
+    .tamaño-logo {
+        width: 90px;
+
+        &:hover {
+            transform: rotate(5deg);
+        }
+    }
+
+    .colorFondo {
+        background-color: $colorHeaderFooter;
+    }
+
+    .header__navlink {
+        font-size: 15px;
+        margin: 10px;
+
+        &:hover {
+            font-weight: bold;
+        }
+    }
+}

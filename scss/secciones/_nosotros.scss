@@ -1,0 +1,83 @@
+main {
+    height: 90vh auto;
+    overflow: hidden;
+
+    .tituloNosotros {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+
+    .container-nosotros {
+        padding-top: 40px;
+        margin: 0px 20px;
+        text-align: center;
+        padding-bottom: 20px;
+    }
+
+    .subTituloNosotros1 {
+        margin-top: 100px;
+        font-size: 20px;
+        margin-bottom: 15;
+        font-weight: 600;
+    }
+
+    .subTituloNosotros {
+        font-size: 15px;
+        font-weight: normal;
+        margin-bottom: 40px;
+    }
+
+    .txtHorarioDeA1 {
+        font-weight: 600;
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    .txtHorarioDeA {
+        font-size: 15px;
+        font-weight: normal;
+    }
+
+    .txt-nosotros {
+        margin: 0px 20px;
+        font-size: 15px;
+    }
+
+    .contenidoHorarioDeA {
+        padding: 10px;
+        margin-top: 100px;
+    }
+
+    .breadcrumb-nosotros {
+        list-style: none;
+        display: flex;
+        padding: 40px 20px 0px;
+        margin-top: 80px;
+        font-size: 15px;
+    }
+
+    .container-mapa {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 35px;
+        text-align: center;
+
+        .titulo-mapa {
+            font-weight: 600;
+            font-size: 20px;
+            background-color: #4f616b;
+            width: 100vw;
+            height: 30px;
+            padding-top: 3px;
+            color: $colorHeaderFooter;
+        }
+
+        .mapa {
+            margin-top: 40px;
+            width: 80vw;
+        }
+    }
+
+}

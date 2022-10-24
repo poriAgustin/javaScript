@@ -1,0 +1,37 @@
+main {
+    height: 90vh auto;
+
+    .breadcrumb-faq {
+        list-style: none;
+        display: flex;
+        justify-content: space-around;
+        width: 140px;
+        padding: 10px 0px 0px 20px;
+        margin-top: 40px;
+        font-size: 13px;
+    }
+
+    .accordion {
+        display: flex;
+        flex-direction: column;
+        margin: 0px 20px 0px;
+        padding: 50px 0px 150px;
+    }
+
+    .tituloFaq {
+        text-align: center;
+        color: $colorHeaderFooter;
+        margin-top: 70px;
+        background-color: #4f616b;
+    }
+
+    .accordion-button {
+        padding: 20px;
+    }
+
+    .accordion-item {
+        .accordion-body {
+            padding-left: 28px;
+        }
+    }
+}

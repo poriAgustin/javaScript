@@ -1,0 +1,60 @@
+footer {
+    background-color: $colorHeaderFooter;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    ul {
+        padding: 0px;
+    }
+
+    .tamaño-logo {
+        width: 100px;
+        margin: 15px;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+            transform: rotate(5deg);
+        }
+    }
+
+    .footer__a {
+        text-decoration: none;
+        color: $colorMain;
+
+        &:hover {
+            text-decoration: underline;
+            color: rgb(0, 0, 160);
+            font-size: 13px;
+        }
+    }
+
+    .footer__li {
+        list-style: none;
+    }
+
+    .titulo-footer {
+        font-weight: 600;
+        color: rgb(75, 75, 75);
+    }
+
+    .fa-brands {
+        font-size: 40px;
+        margin: 15px;
+
+        &:hover {
+            font-size: 45px;
+            color: rgb(0, 0, 120);
+        }
+    }
+
+    .footer__icon {
+        color: rgb(0, 0, 120);
+    }
+
+    .container-atencionalcliente {
+        margin: 0px 10px;
+    }
+}

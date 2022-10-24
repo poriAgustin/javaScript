@@ -1,0 +1,18 @@
+// Extend
+%banner{
+    max-width: 100vw;
+    max-height: 100vh;
+}
+
+%cardsAlfombras{
+    font-size: large;
+    
+}
+
+// Mixin
+
+@mixin linkIndex{
+    :hover{
+        font-weight: bold;
+    }
+}
