@@ -1,6 +1,7 @@
 let userName = 'pori';
 let pass = '123456';
 
+// Funcion para logearse
 function login(params) {
     let ingresar = false;
 
@@ -10,7 +11,7 @@ function login(params) {
 
         if (user == userName) {
             alert('Usuario Correcto. ');
-        } else{
+        } else {
             alert('Usuario Incorrecto')
         }
 
@@ -31,10 +32,10 @@ function login(params) {
 }
 
 
-
+// Opciones para despues de logearse
 if (login()) {
 
-    let opcion = prompt('Elegi una opcion: \n1- Info de cuenta. \n2- Calcular compra. \n3- Descuentos. \n Presiona X para terminar');
+    let opcion = prompt('Elegi una opcion: \n1- Info de cuenta. \n2- Calcular compra. \n3- Descuentos. \n Con la compra de una rug, te llevas una rug personalizada de 20 x 20 cm, Apreta X.');
 
     while (opcion != 'X' && opcion != 'x') {
 
@@ -60,7 +61,7 @@ if (login()) {
 
                 break;
 
-            
+
 
 
             default:
@@ -68,7 +69,7 @@ if (login()) {
                 break;
         }
 
-        opcion = prompt('Elegi una opcion: \n1- Info de cuenta. \n2- Calcular compra. \n3- Descuentos. \n Presiona X para terminar');
+        opcion = prompt('Elegi una opcion: \n1- Info de cuenta. \n2- Calcular compra. \n3- Descuentos. \n Con la compra de una rug, te llevas una rug personalizada de 20 x 20 cm, Apreta X.');
 
     }
 
@@ -77,4 +78,105 @@ if (login()) {
 }
 
 
-alert('Gracias por tu visita, vuelva prontos');
+class Alfombra {
+
+    constructor(color, tamanio, nombreColocar, valoracion, id) {
+        this.color = color;
+        this.tamanio = tamanio;
+        this.nombreColocar = nombreColocar;
+        this.valoracion = parseInt(valoracion);
+        this.id = id;
+
+    }
+
+    asignarId(array) {
+        this.id = array.length;
+    }
+}
+
+// Array de alfombras
+const alfombras = [
+
+    new Alfombra('Roja', 'Chica', 2015, 9, 1),
+    new Alfombra('Azul', 'Grande', 2020, 7, 2),
+    new Alfombra('Verde', 'Mediana', 2022, 5, 3),
+    new Alfombra('Celeste', 'XXL', 2018, 8, 4),
+    new Alfombra('Marron', 'XS', 2019, 10, 5)
+
+]
+
+console.log(alfombras);
+
+let continuar = true;
+
+// Agregar una nueva alfombra
+while (continuar) {
+
+    let ingreso = prompt('Ingresa los datos de la alfombra: color, tamaño, nombre / palabra a colocar y valoracion, separados por una barra diagonal ( / ). Ingresa X para finalizar')
+
+    if (ingreso.toUpperCase() == 'X') {
+        continuar = false;
+        break;
+    }
+
+    const datos = ingreso.split('/')
+    console.log(datos);
+
+    const alfombra = new Alfombra(datos[0], datos[1], datos[2], datos[3], datos[4]);
+
+    alfombras.push(alfombra);
+    alfombra.asignarId(alfombras);
+    console.log(alfombras);
+
+
+}
+// Array para meterle metodos de busqueda y filtrado
+const productos = [{
+    nombre: 'AlfombraWeBad',
+    precio: 8000
+},
+{
+    nombre: 'Alfombra Jordan',
+    precio: 10000
+},
+{
+    nombre: 'Alformbra Coca Cola',
+    precio: 9000
+},
+{
+    nombre: 'Alfombra Faze Wrold',
+    precio: 7500,
+},
+]
+
+// Metodos de busqueda
+const encontrado = productos.find(productos => productos.precio > 9000)
+// let buscador = parseInt(prompt('Busca tu alfombra por precios'));
+// alert(encontrado)
+console.log(encontrado);
+
+// Producto en particular
+const algunProducto = productos.some(productos => productos.precio > 9500);
+
+console.log(algunProducto);
+
+// Filtrado de productos
+const filtrado = productos.filter(productos => productos.precio > 8500);
+
+console.log(filtrado);
+
+// Busqueda por terminos
+let keyword = prompt('Ingresa el termino de busqueda');
+
+const otroFiltrado = productos.filter(productos => productos.nombre.includes(keyword));
+
+console.log(otroFiltrado);
+
+// Precio final de todo el array de alfombras
+const precioFinal = productos.reduce((acumulador, productos) => {
+    return acumulador += productos.precio
+},0)
+
+console.log(precioFinal);
+
+alert('Gracias por su visita, vuelva prontos');
