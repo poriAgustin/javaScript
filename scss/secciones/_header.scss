@@ -2,6 +2,7 @@ header {
     position: fixed;
     width: 100vw;
     z-index: 3;
+    
 
     .tamaño-logo {
         width: 90px;
@@ -10,10 +11,46 @@ header {
             transform: rotate(5deg);
         }
     }
-
+    .navbar{
     .colorFondo {
         background-color: $colorHeaderFooter;
+        justify-content: space-between;
+        .d-flex{
+            padding-left: 35px;
+            .btnLogout{
+                margin-right: 15px;
+                padding: 0px 10px;
+                border: 0;
+                border-radius: 10px;
+                background-color: gainsboro;
+                &:hover{
+                    color: white;
+                    background-color: rgb(0, 0, 111);
+                }
+                
+            }
+            #nombreUsuario{
+                margin-top: 10px;
+            }
+            .btnLogin{
+                background-color: gainsboro;
+                padding: 8px 10px;
+                color: rgb(31, 7, 87);
+                border-radius: 14px;
+                font-weight: 500;
+                font-family: sans-serif;
+                border: 0;
+                &:hover{
+                    background-color: rgb(0, 0, 111);
+                    color: white;
+                    transition: 0.2s;
+                    font-size: 15px;
+                }
+                // background-color: rgba(31, 7, 87, 0.454);
+            }
+        }
     }
+}
 
     .header__navlink {
         font-size: 15px;
@@ -23,4 +60,6 @@ header {
             font-weight: bold;
         }
     }
+
+   
 }

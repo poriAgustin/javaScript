@@ -16,8 +16,35 @@ header {
     width: 90px; }
     header .tamaño-logo:hover {
       transform: rotate(5deg); }
-  header .colorFondo {
-    background-color: #fbfbfb; }
+  header .navbar .colorFondo {
+    background-color: #fbfbfb;
+    justify-content: space-between; }
+    header .navbar .colorFondo .d-flex {
+      padding-left: 35px; }
+      header .navbar .colorFondo .d-flex .btnLogout {
+        margin-right: 15px;
+        padding: 0px 10px;
+        border: 0;
+        border-radius: 10px;
+        background-color: gainsboro; }
+        header .navbar .colorFondo .d-flex .btnLogout:hover {
+          color: white;
+          background-color: #00006f; }
+      header .navbar .colorFondo .d-flex #nombreUsuario {
+        margin-top: 10px; }
+      header .navbar .colorFondo .d-flex .btnLogin {
+        background-color: gainsboro;
+        padding: 8px 10px;
+        color: #1f0757;
+        border-radius: 14px;
+        font-weight: 500;
+        font-family: sans-serif;
+        border: 0; }
+        header .navbar .colorFondo .d-flex .btnLogin:hover {
+          background-color: #00006f;
+          color: white;
+          transition: 0.2s;
+          font-size: 15px; }
   header .header__navlink {
     font-size: 15px;
     margin: 10px; }
@@ -26,6 +53,19 @@ header {
 
 main {
   background-color: #586F7C; }
+  main .toggeable .btnIngresar {
+    padding: 6px 10px;
+    border: 0;
+    border-radius: 10px;
+    margin-top: 10px;
+    background-color: rgba(0, 0, 0, 0.777);
+    color: white;
+    font-size: 13px; }
+    main .toggeable .btnIngresar:hover {
+      font-size: 14px; }
+  main .toggeable .txtModal {
+    padding-left: 20px;
+    padding-bottom: 10px; }
   main .linea__main {
     margin: 10px 15px; }
   main .img-index {
@@ -105,6 +145,14 @@ main {
       width: 95vw;
       margin-top: 20px;
       border-radius: 15px; }
+  main .containerInvitado {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 40px; }
+  main .fakeAncla {
+    text-decoration: underline;
+    cursor: pointer; }
 
 footer {
   background-color: #fbfbfb;

@@ -1,6 +1,24 @@
 main {
+    
     background-color: $colorMain;
-
+    .toggeable{
+        .btnIngresar{
+            padding: 6px 10px;
+            border: 0;
+            border-radius: 10px;
+            margin-top: 10px;
+            background-color: rgba(0, 0, 0, 0.777);
+            color: rgb(255, 255, 255);
+            font-size: 13px;
+            &:hover{
+                font-size: 14px;
+            }
+        }
+        .txtModal{
+            padding-left: 20px;
+            padding-bottom: 10px;
+        }
+    }
     .linea__main {
         margin: 10px 15px;
     }
@@ -116,5 +134,17 @@ main {
             margin-top: 20px;
             border-radius: 15px;
         }
+    }
+
+    .containerInvitado{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    .fakeAncla{
+        text-decoration: underline;
+        cursor: pointer;
     }
 }

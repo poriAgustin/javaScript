@@ -1,182 +1,166 @@
-let userName = 'pori';
-let pass = '123456';
+// registrarse(storage) {
+    
+// }
 
-// Funcion para logearse
-function login(params) {
-    let ingresar = false;
+const usuarios = [{
+    nombre: 'Facundo',
+    mail: 'facundo.vilchez@mail.com',
+    pass: 'yankee305'
+},
+{
+    nombre: 'Flor',
+    mail: 'florlud@mail.com',
+    pass: 'bocaJuniors12'
+},
+{
+    nombre: 'Agustin',
+    mail: 'agustindaniele00@mail.com',
+    pass: 'bokita'
+}]
 
-    for (let i = 2; i >= 0; i--) {
-        let user = prompt('Ingresa tu Nombre de Usuario');
-        let userPass = prompt('Ingresa tu Contraseña');
+const alfombras = [{
+    nombre: 'Jordan',
+    color: 'Negro, morado, amarillo',
+    medida: 'Grande'
+},
+{
+    nombre: 'Faze - Wrold',
+    color: 'Negro, amarillo, naranja, azul',
+    medida: 'Chica'
+},
+{
+    nombre: 'Nike sb',
+    color: 'Verde, morado, azul, blanco, rojo, amarillo',
+    medida: 'Estandar'
+},
+{
+    nombre: 'WeBad',
+    color: 'Blanco, gris, negro',
+    medida: 'Estandar'
+},
+{
+    nombre: 'ThenNoPlay',
+    color: 'Negro, blanco',
+    medida: 'Estandar'
+},
+{
+    nombre: 'Dinosaurio',
+    color: 'Verde, negro',
+    medida: 'Estandar'
+},
+{
+    nombre: 'CocaCola',
+    color: 'Negro, blanco',
+    medida: 'Chica'
+}]
 
-        if (user == userName) {
-            alert('Usuario Correcto. ');
+
+//Todos los elementos del DOM
+const inputMailLogin = document.getElementById('emailLogin'),
+    inputPassLogin = document.getElementById('passwordLogin'),
+    checkRecordar = document.getElementById('recordarme'),
+    btnLogin = document.getElementById('login'),
+    modalEl = document.getElementById('modalLogin'),
+    modal = new bootstrap.Modal(modalEl),
+    contTarjetas = document.getElementById('tarjetas'),
+    elementosToggleables = document.querySelectorAll('.toggeable');
+
+
+//La función de validar se aprovecha del tipo de return que hace el método find
+function validarUsuario(usersDB, user, pass) {
+    let encontrado = usersDB.find((userDB) => userDB.mail == user);
+    console.log(encontrado)
+    console.log(typeof encontrado)
+
+    if (typeof encontrado === 'undefined') {
+        return false;
+    } else {
+        //si estoy en este punto, quiere decir que el usuario existe, queda comparar la pass
+        if (encontrado.pass != pass) {
+            return false;
         } else {
-            alert('Usuario Incorrecto')
+            return encontrado;
         }
-
-        if (userPass == pass) {
-            alert('El login fue exitoso. Bienvenido/a ' + userName);
-            ingresar = true;
-            break;
-
-        }
-
-        else {
-            alert('Te quedan pocos intentos.')
-        }
-    }
-
-    return ingresar;
-
-}
-
-
-// Opciones para despues de logearse
-if (login()) {
-
-    let opcion = prompt('Elegi una opcion: \n1- Info de cuenta. \n2- Calcular compra. \n3- Descuentos. \n Con la compra de una rug, te llevas una rug personalizada de 20 x 20 cm, Apreta X.');
-
-    while (opcion != 'X' && opcion != 'x') {
-
-        switch (opcion) {
-            case '1':
-                let infoDeCuenta = ('\n1-Nombre: Agustin Daniele \n2- Edad : 22 \n3-Altura: 1.85 \n4- Saldo $50000')
-                alert(infoDeCuenta);
-                break;
-
-            case '2':
-                const IVA = 1.21;
-                let importe = parseInt(prompt('Ingrese la cantidad de saldo para calcular'))
-                let importeConIva = importe * IVA;
-                alert('El total es de $' + importeConIva);
-
-                break;
-
-            case '3':
-                let cuponDescuento = 1500;
-                let total = parseInt(prompt('Ingresa el total para calcular el descuento.'))
-                let descuentoTotal = total - cuponDescuento;
-                alert('El total + el descuento serian $' + descuentoTotal)
-
-                break;
-
-
-
-
-            default:
-                alert('Elegiste una opcion invalida')
-                break;
-        }
-
-        opcion = prompt('Elegi una opcion: \n1- Info de cuenta. \n2- Calcular compra. \n3- Descuentos. \n Con la compra de una rug, te llevas una rug personalizada de 20 x 20 cm, Apreta X.');
-
-    }
-
-} else {
-    alert('Te retendremos la cuenta por 30 minutos.');
-}
-
-
-class Alfombra {
-
-    constructor(color, tamanio, nombreColocar, valoracion, id) {
-        this.color = color;
-        this.tamanio = tamanio;
-        this.nombreColocar = nombreColocar;
-        this.valoracion = parseInt(valoracion);
-        this.id = id;
-
-    }
-
-    asignarId(array) {
-        this.id = array.length;
     }
 }
 
-// Array de alfombras
-const alfombras = [
-
-    new Alfombra('Roja', 'Chica', 2015, 9, 1),
-    new Alfombra('Azul', 'Grande', 2020, 7, 2),
-    new Alfombra('Verde', 'Mediana', 2022, 5, 3),
-    new Alfombra('Celeste', 'XXL', 2018, 8, 4),
-    new Alfombra('Marron', 'XS', 2019, 10, 5)
-
-]
-
-console.log(alfombras);
-
-let continuar = true;
-
-// Agregar una nueva alfombra
-while (continuar) {
-
-    let ingreso = prompt('Ingresa los datos de la alfombra: color, tamaño, nombre / palabra a colocar y valoracion, separados por una barra diagonal ( / ). Ingresa X para finalizar')
-
-    if (ingreso.toUpperCase() == 'X') {
-        continuar = false;
-        break;
+//guardamos los datos del usuario que recuperamos de la database en el storage, para tener disponible el nombre
+function guardarDatos(usuarioDB, storage) {
+    const usuario = {
+        'name': usuarioDB.nombre,
+        'user': usuarioDB.mail,
+        'pass': usuarioDB.pass
     }
 
-    const datos = ingreso.split('/')
-    console.log(datos);
-
-    const alfombra = new Alfombra(datos[0], datos[1], datos[2], datos[3], datos[4]);
-
-    alfombras.push(alfombra);
-    alfombra.asignarId(alfombras);
-    console.log(alfombras);
-
-
+    storage.setItem('usuario', JSON.stringify(usuario));
 }
-// Array para meterle metodos de busqueda y filtrado
-const productos = [{
-    nombre: 'AlfombraWeBad',
-    precio: 8000
-},
-{
-    nombre: 'Alfombra Jordan',
-    precio: 10000
-},
-{
-    nombre: 'Alformbra Coca Cola',
-    precio: 9000
-},
-{
-    nombre: 'Alfombra Faze Wrold',
-    precio: 7500,
-},
-]
 
-// Metodos de busqueda
-const encontrado = productos.find(productos => productos.precio > 9000)
-// let buscador = parseInt(prompt('Busca tu alfombra por precios'));
-// alert(encontrado)
-console.log(encontrado);
+//Limpiar los storages
+function borrarDatos() {
+    localStorage.clear();
+    sessionStorage.clear();
+}
 
-// Producto en particular
-const algunProducto = productos.some(productos => productos.precio > 9500);
+//Recupero los datos que se guardaron en el storage y los retorno
+function recuperarUsuario(storage) {
+    return JSON.parse(storage.getItem('usuario'));
+}
 
-console.log(algunProducto);
+//Esta funcion saludo al usuario logeado, usando los datos del storage
+function saludar(usuario) {
+    nombreUsuario.innerHTML = `Bienvenido/a, <span>${usuario.name}</span>`
+}
 
-// Filtrado de productos
-const filtrado = productos.filter(productos => productos.precio > 8500);
 
-console.log(filtrado);
+//Esta función nos permite cambiar la visualización de los elementos del DOM, agregando o sacando la clase d-none. Si el elemento la tiene, se la saco, y si no la tiene, se la agrego.
+function presentarInfo(array, clase) {
+    array.forEach(element => {
+        element.classList.toggle(clase);
+    });
+}
 
-// Busqueda por terminos
-let keyword = prompt('Ingresa el termino de busqueda');
+//Esta función revisa si hay un usuario guardado en el storage, y en ese caso evita el proceso de login 
+function estaLogueado(usuario) {
 
-const otroFiltrado = productos.filter(productos => productos.nombre.includes(keyword));
+    if (usuario) {
+        saludar(usuario);
+        presentarInfo(elementosToggleables, 'd-none');
+    }
+}
 
-console.log(otroFiltrado);
 
-// Precio final de todo el array de alfombras
-const precioFinal = productos.reduce((acumulador, productos) => {
-    return acumulador += productos.precio
-},0)
+btnLogin.addEventListener('click', (e) => {
+    e.preventDefault();
 
-console.log(precioFinal);
+    //Validamos que ambos campos estén completos
+    if (!inputMailLogin.value || !inputPassLogin.value) {
+        alert('Todos los campos son requeridos');
+    } else {
+        let data = validarUsuario(usuarios, inputMailLogin.value, inputPassLogin.value);
 
-alert('Gracias por su visita, vuelva prontos');
+        if (!data) {
+            alert(`Usuario y/o contraseña erróneos`);
+        } else {
+
+            //Revisamos si elige persistir la info aunque se cierre el navegador o no
+            if (checkRecordar.checked) {
+                guardarDatos(data, localStorage);
+                saludar(recuperarUsuario(localStorage));
+            } else {
+                guardarDatos(data, sessionStorage);
+                saludar(recuperarUsuario(sessionStorage));
+            }
+            //Recién ahora cierro el cuadrito de login
+            modal.hide();
+            //Muestro la info para usuarios logueados
+            presentarInfo(elementosToggleables, 'd-none');
+        }
+    }
+});
+
+btnLogout.addEventListener('click', () => {
+    borrarDatos();
+    presentarInfo(elementosToggleables, 'd-none');
+});
+
+estaLogueado(recuperarUsuario(localStorage));
