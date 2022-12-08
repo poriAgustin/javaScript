@@ -1,5 +1,5 @@
 // registrarse(storage) {
-    
+
 // }
 
 const usuarios = [{
@@ -18,7 +18,7 @@ const usuarios = [{
     pass: 'bokita'
 }]
 
-const alfombras = [{
+let alfombras = [{
     nombre: 'Jordan',
     color: 'Negro, morado, amarillo',
     medida: 'Grande'
@@ -134,12 +134,25 @@ btnLogin.addEventListener('click', (e) => {
 
     //Validamos que ambos campos estén completos
     if (!inputMailLogin.value || !inputPassLogin.value) {
-        alert('Todos los campos son requeridos');
+        // alert('Todos los campos son requeridos');
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Todos los campos son requeridos, para iniciar sesion.',
+            timer:3000
+        })
     } else {
         let data = validarUsuario(usuarios, inputMailLogin.value, inputPassLogin.value);
 
         if (!data) {
-            alert(`Usuario y/o contraseña erróneos`);
+            // alert(`Usuario y/o contraseña erróneos`);
+
+            Swal.fire({
+                icon:'warning',
+                title:'Oops...',
+                text:'Usuario y/o contraseña erróneos',
+                timer:3000
+            })
         } else {
 
             //Revisamos si elige persistir la info aunque se cierre el navegador o no

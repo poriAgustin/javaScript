@@ -2,7 +2,21 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: monospace;
+    // font-family: monospace;
+}
+
+main{
+    .disabled{
+        display: none;
+    }
+}
+
+ul{
+    list-style-type: none;
+}
+
+a{
+    text-decoration: none;
 }
 // VARIABLES
 @import './variables/colores';
@@ -16,6 +30,7 @@
 @import './secciones/faq';
 @import './secciones/nosotros';
 @import './secciones/contacto';
+@import './secciones/carrito';
 
 // MEDIASQUERYS
 @import './secciones/mediaquerys';
